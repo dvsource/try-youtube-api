@@ -58,6 +58,7 @@ public class ApiExample
                 .Builder( httpTransport, JSON_FACTORY, clientSecrets, SCOPES )
                 .build();
 
+        // TODO: use constants
         LocalServerReceiver receiver = new LocalServerReceiver
                 .Builder()
                 .setHost( "localhost" )
@@ -95,6 +96,7 @@ public class ApiExample
         final Firestore firestore = connectFirebase();
         YouTube youtubeService = getService();
         // Define and execute the API request
+        // TODO: use constants
         Long pageSize = 50L;
 
         YouTube.Subscriptions.List request = youtubeService.subscriptions().list( "snippet,contentDetails" );
@@ -138,6 +140,7 @@ public class ApiExample
         final InputStream credentialsJson = ApiExample.class.getResourceAsStream( FIREBASE_ADMIN_SECRETS );
         final GoogleCredentials googleCredentials = GoogleCredentials.fromStream( credentialsJson );
 
+        // TODO: use constants
         final FirebaseOptions options = FirebaseOptions.builder()
                 .setCredentials( googleCredentials )
                 .setProjectId( "java-firebase-admin" )
@@ -151,6 +154,7 @@ public class ApiExample
     private static void writeChannels( final Firestore firestore ) throws ExecutionException, InterruptedException
     {
         WriteBatch batch = firestore.batch();
+        // TODO: use constants
         CollectionReference collection = firestore.collection( "channels" );
         ApiExample.CHANNEL_MAP.forEach( ( channelId, ytChannel ) ->
         {
